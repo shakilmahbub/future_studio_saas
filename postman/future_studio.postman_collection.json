@@ -1,0 +1,1623 @@
+{
+  "info": {
+    "_postman_id": "46321e9c-6128-4e53-a749-5ee00c3af1f6",
+    "name": "future_studio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "8864354"
+  },
+  "item": [
+    {
+      "name": "central",
+      "item": [
+        {
+          "name": "authentication",
+          "item": [
+            {
+              "name": "login",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "email",
+                      "value": "admin@central.com",
+                      "type": "text",
+                      "uuid": "5f414b52-c5df-42d3-ad69-916a84aa3c9b"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "6dfe6a1a-15b5-49dc-ae1c-45e6cd33a2e1"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "refresh",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_19pw}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/refresh",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "refresh"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "logout",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzg5ODI5OTYzLCJleHAiOjE3ODk4MzM1NjMsIm5iZiI6MTc4OTgyOTk2MywianRpIjoiZm9yOGxLZGk1aDlZcHQzbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwiY3R4IjoiY2VudHJhbCJ9.exJTwAr8HSn5APcZC2CEvDzgY42jDsPXffm4YDc8Fd0",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/logout",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "logout"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "plans",
+          "item": [
+            {
+              "name": "show",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0bmg}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/plans/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "plans",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzg5ODMwMDEwLCJleHAiOjE3ODk4MzM2MTAsIm5iZiI6MTc4OTgzMDAxMCwianRpIjoiZjkzUE5xU1l3cGMzSnhRbyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwiY3R4IjoiY2VudHJhbCJ9.TtCZDJ7BDJvcbGDp0D_2O8xW4I1iMKsw366kFhc9YIY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/plans",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "plans"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzg5ODMwMDEwLCJleHAiOjE3ODk4MzM2MTAsIm5iZiI6MTc4OTgzMDAxMCwianRpIjoiZjkzUE5xU1l3cGMzSnhRbyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwiY3R4IjoiY2VudHJhbCJ9.TtCZDJ7BDJvcbGDp0D_2O8xW4I1iMKsw366kFhc9YIY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/plans/4",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "plans",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzg5ODMwMDEwLCJleHAiOjE3ODk4MzM2MTAsIm5iZiI6MTc4OTgzMDAxMCwianRpIjoiZjkzUE5xU1l3cGMzSnhRbyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwiY3R4IjoiY2VudHJhbCJ9.TtCZDJ7BDJvcbGDp0D_2O8xW4I1iMKsw366kFhc9YIY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"pro plus\",\r\n    \"price\": 199,\r\n    \"max_users\": 500\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/plans/4",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "plans",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "store",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0bmg}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Plan 1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "This is a very basic plan",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "9.99",
+                      "type": "text"
+                    },
+                    {
+                      "key": "max_users",
+                      "value": "10",
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "1",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/plans",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "plans"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "tenant",
+          "item": [
+            {
+              "name": "store",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0euh}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "shop",
+                      "type": "text"
+                    },
+                    {
+                      "key": "admin_name",
+                      "value": "admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "admin_email",
+                      "value": "admin@shop.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "admin_password",
+                      "value": "123456789",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/tenants",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "tenants"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "subscription",
+          "item": [
+            {
+              "name": "store",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0euh}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "tenant_id",
+                      "value": "shop",
+                      "type": "text"
+                    },
+                    {
+                      "key": "plan_id",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "2026-09-17",
+                      "type": "text"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-10-17",
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/subscriptions",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscriptions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0euh}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"plan_id\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/subscriptions/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscriptions",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0euh}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/subscriptions",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscriptions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0euh}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/subscriptions/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscriptions",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "destroy",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{json_web_token_0euh}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8000/api/v1/subscriptions/3",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscriptions",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_05mh}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "tenant",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "login",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "email",
+                      "value": "admin@foo.localhost",
+                      "type": "text",
+                      "uuid": "5f414b52-c5df-42d3-ad69-916a84aa3c9b"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "6dfe6a1a-15b5-49dc-ae1c-45e6cd33a2e1"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/login",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "refresh",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{auth_secret_1472}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/refresh",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "refresh"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "customer",
+          "item": [
+            {
+              "name": "store",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "customer 3",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "customer3@tenant.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "0883224",
+                      "type": "text"
+                    },
+                    {
+                      "key": "address",
+                      "value": "dhaka, bangladesh",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/customers",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/customers",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/customers/1",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/customers/3",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"customer 1 pro\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/customers/1",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "user",
+          "item": [
+            {
+              "name": "store",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "user 4",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "user4@tenant.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "0883224097",
+                      "type": "text"
+                    },
+                    {
+                      "key": "role_ids[]",
+                      "value": "1",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users/1",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users/3",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"user 1 pro\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users/3",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "subscription",
+          "item": [
+            {
+              "name": "subscription",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTczNTY4MCwiZXhwIjoxNzg5NzM5MjgwLCJuYmYiOjE3ODk3MzU2ODAsImp0aSI6IjREWmF6OHZtUkJqZTkyV0ciLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.gIRjhJlz8iHWdNTjU_XHsVzt4AzPbMuJV5fAN7eGtRE",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/subscription",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscription"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "subscription usege",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTczNTY4MCwiZXhwIjoxNzg5NzM5MjgwLCJuYmYiOjE3ODk3MzU2ODAsImp0aSI6IjREWmF6OHZtUkJqZTkyV0ciLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.gIRjhJlz8iHWdNTjU_XHsVzt4AzPbMuJV5fAN7eGtRE",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/subscription",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "subscription"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "role and permissions",
+          "item": [
+            {
+              "name": "permissions",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTc1MjAyMiwiZXhwIjoxNzg5NzU1NjIyLCJuYmYiOjE3ODk3NTIwMjIsImp0aSI6InFSOWFHZllHekdmNjkxNUwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.djFre8bKTKwUd9EE0JBnVzEpbqF557CVwk0tyPtzqRM",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/permissions",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "permissions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update role",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTc1MjAyMiwiZXhwIjoxNzg5NzU1NjIyLCJuYmYiOjE3ODk3NTIwMjIsImp0aSI6InFSOWFHZllHekdmNjkxNUwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.djFre8bKTKwUd9EE0JBnVzEpbqF557CVwk0tyPtzqRM",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"permission_ids\": [4,5,6,8,9]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/roles/4",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "store role",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTc1MjAyMiwiZXhwIjoxNzg5NzU1NjIyLCJuYmYiOjE3ODk3NTIwMjIsImp0aSI6InFSOWFHZllHekdmNjkxNUwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.djFre8bKTKwUd9EE0JBnVzEpbqF557CVwk0tyPtzqRM",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "lead",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "2",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "3",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "4",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/roles",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "assign role",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "role_ids[]",
+                      "value": "2",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users/2/roles",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "2",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "revoke role",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"role_ids\": [2]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/users/2/roles",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "2",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "all roles",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/roles",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete role",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTc1MjAyMiwiZXhwIjoxNzg5NzU1NjIyLCJuYmYiOjE3ODk3NTIwMjIsImp0aSI6InFSOWFHZllHekdmNjkxNUwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.djFre8bKTKwUd9EE0JBnVzEpbqF557CVwk0tyPtzqRM",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "lead",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "2",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "3",
+                      "type": "text"
+                    },
+                    {
+                      "key": "permission_ids[]",
+                      "value": "4",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/roles",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "dashboard",
+          "item": [
+            {
+              "name": "dashboard",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZm9vLmxvY2FsaG9zdDo4MDAwL2FwaS92MS9sb2dpbiIsImlhdCI6MTc4OTgzMTUwNCwiZXhwIjoxNzg5ODM1MTA0LCJuYmYiOjE3ODk4MzE1MDQsImp0aSI6IjFhamdnWWh3RzZrSGpHcTUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImN0eCI6InRlbmFudCIsInRlbmFudF9pZCI6ImZvbyJ9.PYUaH7XD4PLqPCyHQm6t4Lp_Qg7ruHKua9whWVJ7vSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://foo.localhost:8000/api/v1/dashboard",
+                  "protocol": "http",
+                  "host": [
+                    "foo",
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "dashboard"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0tlp}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://foo.localhost:8000/api/v1",
+              "protocol": "http",
+              "host": [
+                "foo",
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "auth_secret_1472",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0tlp",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_19pw",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_05mh",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0ysu",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0bmg",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0euh",
+      "secret": true
+    }
+  ]
+}

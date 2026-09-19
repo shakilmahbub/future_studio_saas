@@ -42,27 +42,36 @@ class TenantController extends Controller
     public function store(StoreTenantRequest $request)
     {
     
-        $validatedData = $request->validated();
-
-        $tenant = Tenant::create(['id' => $validatedData['name']]);
-
-        $tenant->domains()->create(['domain' => $validatedData['name'].'.'.config('tenancy.central_domains')[0]]);
-
-        tenancy()->initialize($tenant);
-
-        // Tenant database is active here
-        User::create([
-            'name' => $validatedData['admin_name'],
-            'email' => $validatedData['admin_email'],
-            'password' => Hash::make($validatedData['admin_password']),
-        ]);
-
-        tenancy()->end();
+        $tenant = $this->tenantService->createTenant($request->validated());
         
         return response()->json([
             'status' => 'success',
             'data' => $tenant
         ], 201);
+    }
+
+    public function update(Request $request, Tenant $tenant)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|unique:tenants,name,' . $tenant->id,
+        ]);
+
+        $tenant->update($validatedData);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $tenant
+        ]);
+    }
+
+    public function destroy(Tenant $tenant)
+    {
+        $this->tenantService->deleteTenant($tenant);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Tenant deleted successfully'
+        ]);
     }
 
 }

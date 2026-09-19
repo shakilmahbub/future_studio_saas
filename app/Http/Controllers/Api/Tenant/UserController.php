@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Tenant;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Central\User\StoreUserRequest;
-use App\Http\Requests\Central\User\UpdateUserRequest;
+use App\Http\Requests\Tenant\User\StoreUserRequest;
+use App\Http\Requests\Tenant\User\UpdateUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::with('roles')->paginate(10);
         return response()->json([
             'status' => 'success',
             'data' => $users
@@ -21,6 +21,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $user->load('roles');
         return response()->json([
             'status' => 'success',
             'data' => $user
@@ -29,10 +30,21 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
+
+        $totaluser = User::count();
+        $subscription = tenant()->subscription;
+        $maxUsers = $subscription?->plan?->max_users;
+
+        if ($maxUsers !== null && $totaluser >= $maxUsers) {
+            return response()->json([
+                'status' => 'error',
+                'message' => "User limit reached. You can only create up to {$maxUsers} users."
+            ], 403);
+        }
         $validatedData = $request->validated();
 
         $user = User::create($validatedData);
-
+        $user->syncRoles($request->validated('role_ids', []));
         return response()->json([
             'status' => 'success',
             'data' => $user
@@ -44,7 +56,7 @@ class UserController extends Controller
         $validatedData = $request->validated();
 
         $user->update($validatedData);
-
+        $user->roles()->detach($request->input('role_ids'));
         return response()->json([
             'status' => 'success',
             'data' => $user

@@ -7,6 +7,8 @@ use App\Models\Plan;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
+use App\Models\Permission;
 class SubscriptionController extends Controller
 {
     public function show()
@@ -41,8 +43,10 @@ class SubscriptionController extends Controller
                 'message' => 'No subscription found for this tenant.'
             ], 404);
         }
-        
-        $usageDetails = $this->getUsageDetails($subscription);
+
+        $usageDetails = Cache::remember('subscription_usage', now()->addMinutes(30), function () use ($subscription) {
+            return $this->getUsageDetails($subscription);
+        });
 
         return response()->json([
             'status' => 'success',

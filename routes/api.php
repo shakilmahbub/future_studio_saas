@@ -16,7 +16,7 @@ foreach (config('tenancy.central_domains') as $domain) {
 
             Route::post('login',[LoginController::class,'login'])->name('login');
             Route::post('refresh', RefreshTokenController::class)->name('refresh');
-            Route::middleware(['auth:api','context:central'])->group(function () {
+            Route::middleware(['auth:api','context:central','throttle:60,1'])->group(function () {
                 Route::post('logout',[LoginController::class,'logout'])->name('logout');
                 Route::apiResource('plans',PlanController::class);
                 Route::apiResource('users',UserController::class);

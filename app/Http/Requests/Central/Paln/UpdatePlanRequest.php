@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Central\User;
+namespace App\Http\Requests\Central\Paln;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class UpdatePlanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,11 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8'
+            'name' => ['sometimes', 'string', 'max:255', 'unique:plans,name,' . $this->route('plan')->id],
+            'description' => ['nullable', 'string'],
+            'price' => ['sometimes', 'numeric', 'min:0'],
+            'max_users' => ['sometimes', 'integer', 'min:1'],
+            'is_active' => ['sometimes', 'boolean'],
         ];
     }
 }

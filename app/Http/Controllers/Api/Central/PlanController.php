@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Central;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Central\Paln\UpdatePlanRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\Central\PlanRequest;
 use App\Models\Plan;
@@ -37,7 +38,7 @@ class PlanController extends Controller
     }
 
 
-    public function update(PlanRequest $request, Plan $plan)
+    public function update(UpdatePlanRequest $request, Plan $plan)
     {
         $validatedData = $request->validated();
         $plan->update($validatedData);

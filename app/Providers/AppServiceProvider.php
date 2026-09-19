@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Database\Console\Seeds\SeederMakeCommand;
 use Illuminate\Support\ServiceProvider;
+use Dedoc\Scramble\Scramble;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
             \Laratrust\Console\MakeSeederCommand::class,
             SeederMakeCommand::class,
         );
+
+        
     }
 
     /**
@@ -28,6 +31,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Scramble::registerApi('central', [
+            'info' => [
+                'title' => 'Central API',
+                'version' => '1.0.0',
+            ],
+            'api_path' => 'localhost/api/v1',
+        ]);
+
+        Scramble::registerApi('tenant', [
+            'info' => [
+                'title' => 'Tenant API',
+                'version' => '1.0.0',
+            ],
+            'api_path' => 'api/v1',
+        ]);
     }
 }

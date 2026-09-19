@@ -28,7 +28,7 @@ return [
      */
     'bootstrappers' => [
         Stancl\Tenancy\Bootstrappers\DatabaseTenancyBootstrapper::class,
-        //Stancl\Tenancy\Bootstrappers\CacheTenancyBootstrapper::class, // Note: needs a taggable cache store (redis/memcached/array), re-enable once CACHE_STORE=redis
+        Stancl\Tenancy\Bootstrappers\CacheTenancyBootstrapper::class, // Note: needs a taggable cache store (redis/memcached/array), re-enable once CACHE_STORE=redis
         Stancl\Tenancy\Bootstrappers\FilesystemTenancyBootstrapper::class,
         Stancl\Tenancy\Bootstrappers\QueueTenancyBootstrapper::class,
         // Stancl\Tenancy\Bootstrappers\RedisTenancyBootstrapper::class, // Note: phpredis is needed
